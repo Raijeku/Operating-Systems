@@ -1,0 +1,22 @@
+1.
+a) El valor de la x en el proceso hijo vale 100
+b) Cambia de forma independiente para cada proceso
+
+2.
+- Sí pueden, ya que el file descriptor fue retornado antes de llamar fork y por lo tanto ambos procesos tienen acceso a él.
+- Para el caso del programa que ejecuté, el padre escribe antes que el hijo, pero no supone ningún problema por estar escribiendo casi a la vez.
+
+3.
+Si, usando la función sleep() en el padre
+
+4.
+- Considero que depende de los parámetros que ingresan, representandolos de formas distintas según convenga y también depende del tipo de programa que desea ejecutar.
+
+5.
+a) El pid del hijo.
+b) Retorna un -1 porque no tiene hijos por esperar.
+
+6.
+Cuando quiero terminar un proceso en específico que se ha creado anteriormente.
+7.
+- No permite imprimir ninguna salida, ya que al cerrar la salida estándar se destruye la posibilidad de imprimir o de escribir en algun archivo, caso ajeno al que sucedería si el padre intentase imprimir mientras el hijo cierra su propia salida estándar.
