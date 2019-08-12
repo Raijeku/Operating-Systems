@@ -25,6 +25,7 @@ main(int argc, char *argv[]){
         *posicion=contador;
         ++contador;
         posicion=posicion + 1;
+        printf("pid es %d",getpid());
         printf("El arreglo en la posicion %d tiene direccion de memoria %d\n",contador,posicion);
     } 
 }
