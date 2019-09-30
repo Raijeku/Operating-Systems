@@ -42,6 +42,7 @@ int main(int argc, char **argv)
             if (d>=0)
             {
                 read(d, buffer, fileStat.st_size);
+                close(d);
                 for (int i=0; i<sizeof(buffer);i++){
                     if(buffer[i]=='\n'){
                         numLines+=1;
