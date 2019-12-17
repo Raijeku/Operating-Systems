@@ -1,0 +1,14 @@
+# Lab Address Spaces
+1. El comando free sirve para visualizar la cantidad de memoria disponible, tanto de memoria principal como de swap, además de los buffer y cache. También se puede visualizar la memoria usada y la compartida (shared). La cual se puede mostrar en bytes, kilobytes(por defecto), en megabytes o en gigabytes.
+
+2. En el sistema hay 2.97 GB de ram, además de 4 GB de memoria swap. En total, hay 4.15 GB de memoria libre. En cierta medida, ya que al contar los valores que arrojaba el comando se encuentran pequeñas discrepancias aunque en general el uso de memoria en el sistema es el esperado, incluyendo el hecho de que casi toda la memoria swap se encuentra disponible cuando no se están ejecutando muchos procesos.
+
+4. Cuando el proceso está corriendo, se reserva la cantidad de memoria especificada como argumento de entrada lentamente (4 MB para el ejemplo), incrementando durante cada iteración hasta la cantidad. Cuando finaliza el proceso, se libera la memoria reservada hasta el momento para él. Los valores no coinciden con lo que esperaba, ya que antes de correr se tienen 1292 MB de memoria ocupados y después incrementa hasta ocupar 1298 MB (que no equivalen a 4 MB sino a 6 MB) para finalmente volver a tener 1295 MB ocupados. Con cantidades grandes de memoria especificada el programa se vuelve impredecible, al no declarar las estrategias que se implementan en el scheduler y demás desiciones internas del sistema operativo cuando se intenta reservar una gran cantidad de memoria.
+
+5. La diferencia es que free muestra la información general del sistema en cuando en cantidad de memoria usada y libre, pero no es lo suficientemente específico como pmap, que logra especificar la cantidad de memoria que un proceso (identificado por su pid) ocupa, incluyendo sus permisos de escritura, lectura o ejecución y la dirección de memoria en la que se ubica.
+
+6. Ver Figura1, Figura2, Figura3
+
+7. La opción -x muestra más información más detallada sobre las direcciones de memoria que están reservadas y en uso para el proceso en cuestión. Ver Figura4Num7. En la actualidad, las entidades que conforman un espacio de direcciones son: Stack, Heap, BSS, Data (o Constants) y Code, conformando un total de 5 entidades diferentes.
+
+8. Para cada uno de los intentos que se realizaron (con cantidades de memoria 500 MB y 1000 MB), se verificó el espacio utilizado con pmap, lo que arrojó los resultados: Figura8Num8 para el intento de Figura7Num8, y Figura6Num9 para el intento de Figura5Num9. En estos casos, la salida de pmap es el esperado porque aparece aproximadamente la misma dirección reservada que la que fue especificada como argumento en el programa.
