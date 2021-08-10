@@ -1,5 +1,25 @@
 # Files and Directories #
 
+In this assignment we wil familiarize ourselves with the API described in the book chapter. To to so, you only have to write a few programs, mainly based in many UNIX utilities.
+
+## Questions ##
+
+1. **Stat**: Write your own version of the command ```stat```, which simply invokes the system call ```stat()``` in a file or directory. Print the size of the file, the assigned block number, reference (link) count, etc. What is the link count of a directory, how does the amount of entries in the directory change? Useful interfaces: ```stat()```, naturally.
+
+2. **List Files**: Write a program that lists the files of a given directory. When it is called without arguments, the program should only print the names of the file. When it is invoked with the flag ```-l```, the program should print the information of each file such as owner, group, permissions and other information retrieved from the system call ```stat()```. The program should take an additional argument which is the target directory. For example, ```myls -l directory```. If no directory is given, the program should only use the current directory. Useful interfaces: ```stat()```, ```opendir()```, ```readdir()```, ```getcwd()```.
+
+3. **Tail**: Write a program that prints a few lines of a file. The program should be efficient, especially in the way it gets closer to the end of the file, reads a block of data and then goes back until finding the solicited number of lines; up to that point, the program could print those lines from the beginning to the end of the file. To invoke the program, one should type: ```mytail -n file```, where ```n``` is the number of lines at the end of the file to be printed. Useful interfaces: ```stat()```, ```lseek()```, ```open()```, ```read()```, ```close()```.
+
+4. **Recursive Search**: Write a program that prints the names of each file and directory in the filesystem tree, starting from a given point of the filesystem in the tree. For example, when it is executed without arguments, the program should start with the current directory and print its content, as well as with the contents of any of its subdirectores, etc. until the full tree, root in the CWD is printed. If only one argument is given (of the name of a directory), use this as root instead of the system. It refines its recursive search with more options for fun searches, similar to the powerful tool by command line ```find```. Useful interfaces: Solve it.
+
+
+## Useful references ##
+
+1. [Conceptos basicos claves resumidos](https://docs.google.com/document/d/1-336S7oKYwzSSSH-vzks8lGJ0R5VJoZu3PGBsz3vP2w/edit?usp=sharing)
+2. [Aspectos basicos de C](https://github.com/repos-SO-UdeA/lab3)
+3. [Manejo dinamico de memoria en C](https://github.com/repos-SO-UdeA/lab5)
+4. [Manejo de archivos en C](https://github.com/repos-SO-UdeA/lab6)
+
 En esta tarea, nos familiarizaremos con el API descrito en el capítulo del libro. Para hacer esto, usted solo debe escribir unos cuantos programas, la mayoria basada en varias utilidades UNIX.
 
 ## Questions ##
